@@ -1,0 +1,6 @@
+{
+    "wsdl_path":"./wsdls/sviluppo.wsdl",
+    "neteye_url":"https://monitor.irideos.it:5665",
+    "user":"director",
+    "password":"dZvB1UlYhkTK1Ya0ccB2GFNJIYlG0bAs",
+}
