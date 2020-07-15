@@ -1,0 +1,33 @@
+args:
+    ----- login
+    user / indetid: str
+    pw   / password: str
+    ----- per search
+    CI / server name / label_monitoring : str
+    description / it_short_desc : str
+    ----- per insert
+    priority / se_severity: Union[num, str]
+    service_check_output / inquiry_txt: str
+    prozess: str
+    ----- per ackwnowledge
+    host : str
+    servizio : str
+
+
+incident id == inqury_id
+START:
+
+la ricerca si fa con server name e description
+
+ricerca -> 2 casi:
+    no incident id:
+        insert!
+        con la insert ottengo incident id
+
+        ackwnowledge con commento predefinito con incident id dentro
+        per ora author e' "ITSM" poi al piu' modifichiamo
+
+    si incident id:
+        update incident
+
+Intanto scrivo fingendo che ci sia il wsdl poi cambiamo nel caso
