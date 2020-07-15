@@ -1,0 +1,12 @@
+Report=SE_Inq_Modificate
+Destination=MAIL
+Filetype=30
+Copies=1
+Selection=({sv_inquiry.change_dt} >= '2019/05/21 18:00:00' AND {sv_inquiry.change_dt} <= '2019/05/22 08:00:00')
+
+
+Report=Incident Summary
+Destination=MAIL
+Filetype=30
+Copies=1
+Selection=({sv_inquiry.logged_dt} >= '2019/05/21 18:00:00.00' AND {sv_inquiry.logged_dt} <= '2019/05/22 08:00:00.00')

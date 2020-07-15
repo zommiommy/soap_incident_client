@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.iet-solutions.de/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.iet-solutions.de/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/">
+
+
+-<wsdl:types>
+
+
+-<s:schema targetNamespace="http://www.iet-solutions.de/" elementFormDefault="qualified">
+
+
+-<s:element name="ProcessOperation">
+
+
+-<s:complexType>
+
+
+-<s:sequence>
+
+<s:element name="identId" type="s:string" maxOccurs="1" minOccurs="0"/>
+
+<s:element name="password" type="s:string" maxOccurs="1" minOccurs="0"/>
+
+<s:element name="prozess" type="s:string" maxOccurs="1" minOccurs="0"/>
+
+<s:element name="version" type="s:string" maxOccurs="1" minOccurs="0"/>
+
+
+-<s:element name="processData" maxOccurs="1" minOccurs="0">
+
+
+-<s:complexType mixed="true">
+
+
+-<s:sequence>
+
+<s:any/>
+
+</s:sequence>
+
+</s:complexType>
+
+</s:element>
+
+</s:sequence>
+
+</s:complexType>
+
+</s:element>
+
+
+-<s:element name="ProcessOperationResponse">
+
+
+-<s:complexType>
+
+
+-<s:sequence>
+
+<s:element name="ProcessOperationResult" type="tns:Response" maxOccurs="1" minOccurs="0"/>
+
+</s:sequence>
+
+</s:complexType>
+
+</s:element>
+
+
+-<s:complexType name="Response">
+
+
+-<s:sequence>
+
+
+-<s:element name="Result" maxOccurs="1" minOccurs="0">
+
+
+-<s:complexType mixed="true">
+
+
+-<s:sequence>
+
+<s:any/>
+
+</s:sequence>
+
+</s:complexType>
+
+</s:element>
+
+<s:element name="Status" type="s:string" maxOccurs="1" minOccurs="0"/>
+
+</s:sequence>
+
+</s:complexType>
+
+</s:schema>
+
+</wsdl:types>
+
+
+-<wsdl:message name="ProcessOperationSoapIn">
+
+<wsdl:part name="parameters" element="tns:ProcessOperation"/>
+
+</wsdl:message>
+
+
+-<wsdl:message name="ProcessOperationSoapOut">
+
+<wsdl:part name="parameters" element="tns:ProcessOperationResponse"/>
+
+</wsdl:message>
+
+
+-<wsdl:portType name="IETWebservicesSoap">
+
+
+-<wsdl:operation name="ProcessOperation">
+
+<wsdl:input message="tns:ProcessOperationSoapIn"/>
+
+<wsdl:output message="tns:ProcessOperationSoapOut"/>
+
+</wsdl:operation>
+
+</wsdl:portType>
+
+
+-<wsdl:binding name="IETWebservicesSoap" type="tns:IETWebservicesSoap">
+
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+-<wsdl:operation name="ProcessOperation">
+
+<soap:operation style="document" soapAction="http://www.iet-solutions.de/ProcessOperation"/>
+
+
+-<wsdl:input>
+
+<soap:body use="literal"/>
+
+</wsdl:input>
+
+
+-<wsdl:output>
+
+<soap:body use="literal"/>
+
+</wsdl:output>
+
+</wsdl:operation>
+
+</wsdl:binding>
+
+
+-<wsdl:binding name="IETWebservicesSoap12" type="tns:IETWebservicesSoap">
+
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+-<wsdl:operation name="ProcessOperation">
+
+<soap12:operation style="document" soapAction="http://www.iet-solutions.de/ProcessOperation"/>
+
+
+-<wsdl:input>
+
+<soap12:body use="literal"/>
+
+</wsdl:input>
+
+
+-<wsdl:output>
+
+<soap12:body use="literal"/>
+
+</wsdl:output>
+
+</wsdl:operation>
+
+</wsdl:binding>
+
+
+-<wsdl:service name="IETWebservices">
+
+
+-<wsdl:port name="IETWebservicesSoap" binding="tns:IETWebservicesSoap">
+
+<soap:address location="http://151.89.50.30/iETWebservice/IETWebservices.asmx"/>
+
+</wsdl:port>
+
+
+-<wsdl:port name="IETWebservicesSoap12" binding="tns:IETWebservicesSoap12">
+
+<soap12:address location="http://151.89.50.30/iETWebservice/IETWebservices.asmx"/>
+
+</wsdl:port>
+
+</wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+#!/bin/bash
+# soap_incident_client is a free software developed by Tommaso Fontana for Würth Phoenix S.r.l. under GPL-2 License.
+DIR=$(dirname "$(python -c "import os,sys; print(os.path.realpath(sys.argv[1]))" $0)")
+(\
+    cd $DIR;\
+    python3 -c "import soap_incident_client; soap_incident_client.client()" "$@"
+)

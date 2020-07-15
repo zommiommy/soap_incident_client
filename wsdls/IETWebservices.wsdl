@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.iet-solutions.de/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.iet-solutions.de/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.iet-solutions.de/">
+      <s:element name="ProcessOperation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="identId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prozess" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="processData">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessOperationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessOperationResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result">
+            <s:complexType mixed="true">
+              <s:sequence>
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessOperationSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessOperation" />
+  </wsdl:message>
+  <wsdl:message name="ProcessOperationSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessOperationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IETWebservicesSoap">
+    <wsdl:operation name="ProcessOperation">
+      <wsdl:input message="tns:ProcessOperationSoapIn" />
+      <wsdl:output message="tns:ProcessOperationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IETWebservicesSoap" type="tns:IETWebservicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessOperation">
+      <soap:operation soapAction="http://www.iet-solutions.de/ProcessOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IETWebservicesSoap12" type="tns:IETWebservicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessOperation">
+      <soap12:operation soapAction="http://www.iet-solutions.de/ProcessOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IETWebservices">
+    <wsdl:port name="IETWebservicesSoap" binding="tns:IETWebservicesSoap">
+      <soap:address location="http://151.89.50.24/iETWebservice/IETWebservices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IETWebservicesSoap12" binding="tns:IETWebservicesSoap12">
+      <soap12:address location="http://151.89.50.24/iETWebservice/IETWebservices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

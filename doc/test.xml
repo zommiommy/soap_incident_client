@@ -1,0 +1,10 @@
+<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap-env:Body>
+    <ns0:ProcessOperation xmlns:ns0="http://www.iet-solutions.de/">
+      <ns0:identId>identid,</ns0:identId>
+      <ns0:password>password,</ns0:password>
+      <ns0:prozess>prozess,</ns0:prozess>
+      <ns0:version>1.0</ns0:version>
+    </ns0:ProcessOperation>
+  </soap-env:Body>
+</soap-env:Envelope>

@@ -1,0 +1,9 @@
+{
+    "wsdl_api_url":"http://url",
+    "neteye_url":"https://neteye",
+    "neteye_user":"user",
+    "neteye_password":"password",
+    "author":"ITSM integration user",
+    "comment":"Acknowledge by ITSM, inquiryID: {inquiryID}",
+    "verify":"/neteye/shared/icinga2/data/lib/icinga2/certs/ca.crt"
+}
