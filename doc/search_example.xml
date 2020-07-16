@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+    <soap12:Body>
+        <ProcessOperation xmlns="http://www.iet-solutions.de/">
+            <identId>user_test</identId>
+            <password>user_test</password>
+            <prozess>SE NET EYE QUERY WS</prozess>
+            <version>1.0</version>
+            <processData>
+                <my_tag>
+                    <it_short_desc>Service Check</it_short_desc>
+                    <label_monitoring>Host Object</label_monitoring>
+                </my_tag>
+            </processData>
+        </ProcessOperation>
+    </soap12:Body>
+</soap12:Envelope>
