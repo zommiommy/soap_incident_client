@@ -62,7 +62,8 @@ class SOAPClient:
             "se_severity":args["se_severity"],
         })
         if args["debug"]:
-            print(result)
+            print("Complete response:\n%s"%result)
+            print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
 
         # TODO figure out how to extract the result inicdent id
 
@@ -73,7 +74,8 @@ class SOAPClient:
                 "se_severity":args["se_severity"],
         })
         if self.settings["debug"]:
-            print(result)
+            print("Complete response:\n%s"%result)
+            print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
         # TODO parse the result
 
     def run(self, args):
