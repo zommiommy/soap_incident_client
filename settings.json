@@ -2,5 +2,6 @@
     "wsdl_api_url":"http://151.89.50.30/iETWebservice/IETWebservices.asmx",
     "neteye_url":"https://monitor.irideos.it:5665",
     "user":"director",
-    "password":""
+    "pw_file":"/neteye/shared/tornado/data/director-user.conf",
+    "pw_regex":"password *= *\"(.+)\"",
 }
