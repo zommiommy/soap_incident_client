@@ -85,7 +85,7 @@ class SOAPClient:
             args["incident_id"] = self.insert(args)
             ack_args = self.settings.copy()
             ack_args.update(args)
-            acknowledge(ack_args)
+            #acknowledge(ack_args)
         else:
             self.update(args, incident_id)
 
