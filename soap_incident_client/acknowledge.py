@@ -16,12 +16,11 @@ def acknowledge(args):
         "author": args["author"],
         "comment": args["comment"].format(**args)
     }
-    logger.debug("Authorizations: user: [{user}] password: [{password}]".format(**args))
     # Do the post
     r = requests.post(
         url,
         headers=headers,
-        auth=(args["user"], args["password"]),
+        auth=(args["neteye_user"], args["neteye_password"]),
         json=data,
         verify=args["verify"]
     )
