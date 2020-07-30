@@ -42,9 +42,7 @@ class SOAPClient:
             "label_monitoring":args["label_monitoring"],
         })
         if args["debug"]:
-            print(dir(result["Result"]._value_1))
-            print(result["Result"]._value_1.values())
-            print(result["Result"]._value_1.keys())
+            from IPython import embed; embed()
         # TODO figure out how to extract the result inicdent id
         return result["Result"]
 
