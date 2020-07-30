@@ -1,9 +1,8 @@
 {
     "wsdl_api_url":"http://151.89.50.30/iETWebservice/IETWebservices.asmx",
     "neteye_url":"https://monitor.irideos.it:5665",
-    "user":"director",
-    "pw_file":"/neteye/shared/tornado/data/director-user.conf",
-    "pw_regex":"password *= *\"(.+)\"",
+    "user":"itsm-integration-user",
+    "password":"ItsmIntegration2020",
     "author":"ITSM integration user",
     "commnet":"Acknowledge by ITSM, inquiryID: {inquiryID}"
 }

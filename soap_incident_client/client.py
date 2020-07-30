@@ -34,13 +34,4 @@ def client():
     logger.debug("Argument received by the client:\n%s"%args)
 
     settings.update(args)
-
-    with open(settings["pw_file"]) as f:
-        match = re.search(settings["pw_regex"], f.read())
-        if match:
-            settings["password"] = match.group(1)
-        else:
-            logger.error("CANNOT FIND PASSWORD at %s with regex %s"%(settings["pw_file"], settings["pw_regex"]))
-            sys.exit(-1)
-
     soap_client(settings)
