@@ -42,7 +42,7 @@ class SOAPClient:
             "label_monitoring":args["label_monitoring"],
         })
         if args["debug"]:
-            print(vars(result["Result"]))
+            print(result["Result"].keys())
         # TODO figure out how to extract the result inicdent id
         return result["Result"]
 
