@@ -10,7 +10,7 @@
             <version>1.0</version>
             <processData>
                 <ins>
-                    <inquiry_id>{inquiry_id}</inquiry_id>
+                    <inquiryID>{inquiryID}</inquiryID>
                     <inquiry_txt>{inquiry_txt}</inquiry_txt>
                     <se_severity>{se_severity}</se_severity>
                 </ins>
