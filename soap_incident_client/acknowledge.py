@@ -25,6 +25,7 @@ def acknowledge(args):
         verify=args["verify"]
     )
 
+    logger.info("[AK] Status code %d:\n%s"%(r.status_code, r.text))
     if r.status_code == 200:
         logger.info("[AK] OK : %s"%r.json())
         return r.json()
