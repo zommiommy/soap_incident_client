@@ -15,7 +15,7 @@ def client():
     search_settings.add_argument("-l", "--label_monitoring", help="", type=str)
     search_settings.add_argument("-sd", "--it_short_desc", help="", type=str)
     insert_settings = parser.add_argument_group('insert settings')
-    insert_settings.add_argument("-s", "--se_severity", help="", type=str)
+    insert_settings.add_argument("-se", "--se_severity", help="", type=str)
     insert_settings.add_argument("-it", "--inquiry_txt", help="", type=str)
 
     args = vars(parser.parse_args())
