@@ -1,2 +1,2 @@
 from .client import client
-from .soap_client import SOAPClient
+from .soap_client import soap_client

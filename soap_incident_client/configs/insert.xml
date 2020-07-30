@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+    <soap12:Body>
+        <ProcessOperation xmlns="http://www.iet-solutions.de/">
+            <identId>{identId}</identId>
+            <password>{password}</password>
+            <prozess>SE INQ NET EYE WS</prozess>
+            <version>1.0</version>
+            <processData>
+                <ins>
+                    <label_monitoring>{label_monitoring}</label_monitoring>
+                    <shortdesc>{shortdesc}</shortdesc>
+                    <inquiry_txt>{inquiry_txt}</inquiry_txt>
+                    <se_severity>{se_severity}</se_severity>
+                </ins>
+            </processData>
+        </ProcessOperation>
+    </soap12:Body>
+</soap12:Envelope>
