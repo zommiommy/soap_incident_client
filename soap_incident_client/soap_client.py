@@ -57,7 +57,7 @@ class SOAPClient:
 
     def insert(self, args):
         result = self._call(args, self.settings["prozess_insert"], {
-            "shortdesc":args["it_short_desc"],
+            "it_short_desc":args["it_short_desc"],
             "label_monitoring":args["label_monitoring"],
             "inquiry_txt":args["inquiry_txt"],
             "se_severity":args["se_severity"],
