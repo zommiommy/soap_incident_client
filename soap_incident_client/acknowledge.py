@@ -13,8 +13,8 @@ def acknowledge(args):
     data = {
         "type": "Service",
         "filter": "host.name==\"%s\" && match(\"%s\", service.name)"%(args["host"], args["service"]),
-        "author": "ITSM",
-        "comment": "Acknowledge by ITSM, inquiryID: %s"%(args["inquiryID"])
+        "author": args["author"],
+        "comment": args["comment"].format(**args)
     }
     # Do the post
     r = requests.post(

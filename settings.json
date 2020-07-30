@@ -4,4 +4,6 @@
     "user":"director",
     "pw_file":"/neteye/shared/tornado/data/director-user.conf",
     "pw_regex":"password *= *\"(.+)\"",
+    "author":"ITSM integration user",
+    "commnet":"Acknowledge by ITSM, inquiryID: {inquiryID}"
 }
