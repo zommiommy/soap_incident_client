@@ -16,4 +16,6 @@ def soap_client(args):
         args["inquiryID"] = incident_id
         ident_id = soap_call(args, "update.xml", "update_regex.txt")
         logger.info("Done update on id %s"%ident_id)
+        if args["se_severity"].strip().lower() != "ok":
+            acknowledge(args)
     logger.info("Done!")
