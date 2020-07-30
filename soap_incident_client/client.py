@@ -24,6 +24,6 @@ def client():
     args["service"] = args["it_short_desc"]
 
     if args["debug"]:
-        print(args)
+        print("Argument received by the client:\n%s"%args)
 
     SOAPClient(settings).run(args)

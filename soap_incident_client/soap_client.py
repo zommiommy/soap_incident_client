@@ -22,7 +22,7 @@ class SOAPClient:
             **kwargs
         )
         tree = ET.ElementTree(node)
-        print(ET.tostring(tree, pretty_print=True).decode())
+        print("Raw xml message sent:\n%s"%ET.tostring(tree, pretty_print=True).decode())
 
     def _call(self, args, request_object): 
         kwargs = {
@@ -35,7 +35,7 @@ class SOAPClient:
         if args["debug"]:
             self._debug(kwargs)
             with self.client.settings(raw_response=True):
-                print(self.client.service.ProcessOperation(**kwargs))
+                print("Raw xml response:\n%s"%self.client.service.ProcessOperation(**kwargs))
         return self.client.service.ProcessOperation(**kwargs)
 
     def search(self, args):
@@ -44,8 +44,8 @@ class SOAPClient:
             "label_monitoring":args["label_monitoring"],
         })
         if args["debug"]:
-            print(result)
-            print(ET.tostring(result["Result"]["_value_1"]).decode())
+            print("Complete response:\n%s"%result)
+            print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
             embed()
         if result["Status"] != "Error":
             return result["Result"]["ident_id"]
