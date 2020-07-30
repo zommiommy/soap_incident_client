@@ -48,7 +48,7 @@ class SOAPClient:
         result = self._call(args, self.settings["prozess_search"], {
             "it_short_desc":args["it_short_desc"],
             "label_monitoring":args["label_monitoring"],
-        }, None)
+        }, "my_tag")
         if args["debug"]:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
@@ -78,7 +78,7 @@ class SOAPClient:
                 "inquiry_id":args["inquiry_id"],
                 "inquiry_txt":args["inquiry_txt"],
                 "se_severity":args["se_severity"],
-        }, "my_tag")
+        }, "ins")
         if self.settings["debug"]:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
