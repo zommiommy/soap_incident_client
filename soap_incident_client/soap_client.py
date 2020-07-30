@@ -47,7 +47,7 @@ class SOAPClient:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
             embed()
-        if result["Statue"] == "No Error":
+        if result["Status"] == "No Error":
             return None
         if result["Status"] != "Error":
             return result["Result"]["ident_id"]
