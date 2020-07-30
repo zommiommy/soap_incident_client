@@ -6,16 +6,16 @@ def client():
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--settings", help="Path to the settings json", type=str, default="./settings.json")
 
-    search_settings = parser.add_argument_group('login settings')
-    search_settings.add_argument("indetid", help="", type=str)
-    search_settings.add_argument("password", help="", type=str)
+    login_settings = parser.add_argument_group('login settings')
+    login_settings.add_argument("identId", help="", type=str)
+    login_settings.add_argument("password", help="", type=str)
+    login_settings.add_argument("prozess", help="", type=str)
     search_settings = parser.add_argument_group('search settings')
     search_settings.add_argument("label_monitoring", help="", type=str)
     search_settings.add_argument("it_short_desc", help="", type=str)
     insert_settings = parser.add_argument_group('insert settings')
     insert_settings.add_argument("se_severity", help="", type=str)
     insert_settings.add_argument("inquiry_txt", help="", type=str)
-    insert_settings.add_argument("prozess", help="", type=str)
     acknow_settings = parser.add_argument_group('acknowledge settings')
     acknow_settings.add_argument("host", help="", type=str)
     acknow_settings.add_argument("service", help="", type=str)
@@ -25,4 +25,4 @@ def client():
     with open(args["settings"], "r") as f:
         settings = json.load(f)
 
-    SOAPClient(args, settings).run()
+    SOAPClient(settings).run(args)
