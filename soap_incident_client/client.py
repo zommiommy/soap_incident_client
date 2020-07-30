@@ -5,6 +5,7 @@ from .soap_client import SOAPClient
 def client():
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--settings", help="Path to the settings json", type=str, default="./settings.json")
+    parser.add_argument("-d", "--debug", help="Debug mode, print the xml generated and received", action="store_true", default=False)
 
     login_settings = parser.add_argument_group('login settings')
     login_settings.add_argument("identId", help="", type=str)
@@ -24,5 +25,7 @@ def client():
 
     with open(args["settings"], "r") as f:
         settings = json.load(f)
+
+    print(args)
 
     SOAPClient(settings).run(args)

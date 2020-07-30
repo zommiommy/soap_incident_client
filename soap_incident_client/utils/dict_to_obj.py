@@ -3,7 +3,7 @@ import zeep
 from zeep import xsd
 from lxml import etree as ET
 
-def dict_to_obj(**kwargs):
+def dict_to_obj(kwargs):
     seq = xsd.Sequence([
         xsd.Element(key, xsd.String())
         for key in kwargs.keys()
