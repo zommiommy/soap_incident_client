@@ -42,7 +42,8 @@ class SOAPClient:
             "label_monitoring":args["label_monitoring"],
         })
         if args["debug"]:
-            print(result["Result"].keys())
+            tree = ET.ElementTree(result["Result"])
+            print(ET.tostring(tree, pretty_print=True).decode())
         # TODO figure out how to extract the result inicdent id
         return result["Result"]
 
