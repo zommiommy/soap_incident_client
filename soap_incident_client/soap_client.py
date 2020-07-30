@@ -31,7 +31,7 @@ class SOAPClient:
             "prozess":prozess,
             "version":1.0
         }
-        
+
         if tag is None:
             kwargs["processData"] = dict_to_obj(request_object)
         else:
@@ -85,6 +85,7 @@ class SOAPClient:
         # TODO parse the result
 
     def run(self, args):
+        self.insert(args)
         incident_id = self.search(args)
         if incident_id is None:
             args["incident_id"] = self.insert(args)
