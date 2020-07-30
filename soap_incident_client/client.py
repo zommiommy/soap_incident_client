@@ -8,15 +8,15 @@ def client():
     parser.add_argument("-d", "--debug", help="Debug mode, print the xml generated and received", action="store_true", default=False)
 
     login_settings = parser.add_argument_group('login settings')
-    login_settings.add_argument("identId", help="", type=str)
-    login_settings.add_argument("password", help="", type=str)
-    login_settings.add_argument("prozess", help="", type=str)
+    login_settings.add_argument("-i", "--identId", help="", type=str)
+    login_settings.add_argument("-pw", "--password", help="", type=str)
+    login_settings.add_argument("-p", "--prozess", help="", type=str)
     search_settings = parser.add_argument_group('search settings')
-    search_settings.add_argument("label_monitoring", help="", type=str)
-    search_settings.add_argument("it_short_desc", help="", type=str)
+    search_settings.add_argument("-l", "--label_monitoring", help="", type=str)
+    search_settings.add_argument("-sd", "--it_short_desc", help="", type=str)
     insert_settings = parser.add_argument_group('insert settings')
-    insert_settings.add_argument("se_severity", help="", type=str)
-    insert_settings.add_argument("inquiry_txt", help="", type=str)
+    insert_settings.add_argument("-s", "--se_severity", help="", type=str)
+    insert_settings.add_argument("-it", "--inquiry_txt", help="", type=str)
 
     args = vars(parser.parse_args())
 

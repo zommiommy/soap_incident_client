@@ -44,6 +44,7 @@ class SOAPClient:
         if args["debug"]:
             print(result)
         # TODO figure out how to extract the result inicdent id
+        return result["Result"]
 
     def insert(self, args):
         result = self._call(args, {
