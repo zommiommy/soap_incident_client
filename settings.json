@@ -4,5 +4,6 @@
     "user":"itsm-integration-user",
     "password":"ItsmIntegration2020",
     "author":"ITSM integration user",
-    "comment":"Acknowledge by ITSM, inquiryID: {inquiryID}"
+    "comment":"Acknowledge by ITSM, inquiryID: {inquiryID}",
+    "verify":"/neteye/shared/icinga2/data/lib/icinga2/certs/ca.crt"
 }

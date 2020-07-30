@@ -20,8 +20,9 @@ def acknowledge(args):
     r = requests.post(
         url,
         headers=headers,
-        auth=(args["user"], args["password"]), verify=False,
+        auth=(args["user"], args["password"]),
         json=data,
+        verify=args["verify"]
     )
 
     if r.status_code == 200:
