@@ -1,4 +1,4 @@
-
+from IPython import embed
 from zeep import xsd
 from zeep import Client
 from requests import Session
@@ -42,9 +42,13 @@ class SOAPClient:
             "label_monitoring":args["label_monitoring"],
         })
         if args["debug"]:
-            from IPython import embed; embed()
-        # TODO figure out how to extract the result inicdent id
-        return result["Result"]
+            print(result)
+            print(ET.tostring(result["Result"]["_value_1"]).decode())
+            embed()
+        if result["Status"] != "Error":
+            return result["Result"]["ident_id"]
+        else:
+            return None
 
     def insert(self, args):
         result = self._call(args, {
