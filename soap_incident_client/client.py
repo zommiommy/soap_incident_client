@@ -11,12 +11,12 @@ def client():
     parser.add_argument("-s", "--settings", help="Path to the settings json", type=str, default="./settings.json")
     parser.add_argument("-v", "--verbosity", help="Log level, 0 = Warning, 1 = Info, 2 = Debug", type=int, default=0, choices=[0, 1, 2])
 
-    parser.add_argument("identId", help="", type=str)
-    parser.add_argument("password", help="", type=str)
-    parser.add_argument("label_monitoring", help="", type=str)
-    parser.add_argument("it_short_desc", help="", type=str)
-    parser.add_argument("se_severity", help="", type=str)
-    parser.add_argument("inquiry_txt", help="", type=str)
+    parser.add_argument("identId", help="ITSM User Name", type=str)
+    parser.add_argument("password", help="ITSM User Password", type=str)
+    parser.add_argument("label_monitoring", help="ITSM CI Label Monitoring", type=str)
+    parser.add_argument("it_short_desc", help="NetEye Service Object/Host Object Name", type=str)
+    parser.add_argument("se_severity", help="NetEye Service Object/Host Object current Status", type=str, choices=("OK", "WARNING", "CRITICAL", "UNKNOWN"))
+    parser.add_argument("inquiry_txt", help="Neteye Check Command Output", type=str)
     args = vars(parser.parse_args())
 
     with open(args["settings"], "r") as f:
