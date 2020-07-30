@@ -35,7 +35,8 @@ class SOAPClient:
         if args["debug"]:
             self._debug(kwargs)
             with self.client.settings(raw_response=True):
-                print("Raw xml response:\n%s"%self.client.service.ProcessOperation(**kwargs))
+                r = self.client.service.ProcessOperation(**kwargs)
+                print("Raw xml response %d:\n%s"%(r.status_code, r.content))
         return self.client.service.ProcessOperation(**kwargs)
 
     def search(self, args):
