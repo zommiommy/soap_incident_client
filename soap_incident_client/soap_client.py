@@ -24,13 +24,13 @@ class SOAPClient:
         tree = ET.ElementTree(node)
         print("Raw xml message sent:\n%s"%ET.tostring(tree, pretty_print=True).decode())
 
-    def _call(self, args, prozess, request_object): 
+    def _call(self, args, prozess, request_object, tag): 
         kwargs = {
             "identId":args["identId"],
             "password":args["password"],
             "prozess":prozess,
             "version":1.0,
-            "processData":dict_to_obj(request_object)
+            "processData":dict_to_obj(request_object, tag)
         }
         if args["debug"]:
             self._debug(kwargs)
@@ -43,7 +43,7 @@ class SOAPClient:
         result = self._call(args, self.settings["prozess_search"], {
             "it_short_desc":args["it_short_desc"],
             "label_monitoring":args["label_monitoring"],
-        })
+        }, "my_tag")
         if args["debug"]:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
@@ -61,7 +61,7 @@ class SOAPClient:
             "label_monitoring":args["label_monitoring"],
             "inquiry_txt":args["inquiry_txt"],
             "se_severity":args["se_severity"],
-        })
+        }, "my_tag")
         if args["debug"]:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
@@ -73,7 +73,7 @@ class SOAPClient:
                 "inquiry_id":args["inquiry_id"],
                 "inquiry_txt":args["inquiry_txt"],
                 "se_severity":args["se_severity"],
-        })
+        }, "my_tag")
         if self.settings["debug"]:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
