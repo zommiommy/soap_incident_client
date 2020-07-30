@@ -31,7 +31,7 @@ class SOAPClient:
             "prozess":prozess,
             "version":1.0
         }
-
+        
         if tag is None:
             kwargs["processData"] = dict_to_obj(request_object)
         else:
@@ -62,11 +62,11 @@ class SOAPClient:
 
     def insert(self, args):
         result = self._call(args, self.settings["prozess_insert"], {
-            "it_short_desc":args["it_short_desc"],
+            "shortdesc":args["it_short_desc"],
             "label_monitoring":args["label_monitoring"],
             "inquiry_txt":args["inquiry_txt"],
             "se_severity":args["se_severity"],
-        }, "my_tag")
+        }, "ins")
         if args["debug"]:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
@@ -85,7 +85,6 @@ class SOAPClient:
         # TODO parse the result
 
     def run(self, args):
-        self.insert(args)
         incident_id = self.search(args)
         if incident_id is None:
             args["incident_id"] = self.insert(args)
