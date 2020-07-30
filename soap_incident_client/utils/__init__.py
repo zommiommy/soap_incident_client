@@ -1,1 +1,1 @@
-from .dict_to_obj import dict_to_obj
+from .dict_to_obj import dict_to_obj, dict_to_obj_with_tag

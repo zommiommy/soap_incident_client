@@ -3,15 +3,19 @@ import zeep
 from zeep import xsd
 from lxml import etree as ET
 
-def dict_to_obj(kwargs, tag):
+def dict_to_obj(kwargs):
     seq = xsd.Sequence([
         xsd.Element(key, xsd.String())
         for key in kwargs.keys()
     ])
-    if tag is None:
-        return xsd.AnyObject(seq, xsd.ComplexType(seq)(**kwargs))
-    el = xsd.Element(tag, seq)
-    return xsd.AnyObject(el, xsd.ComplexType(el)(kwargs))
+    return xsd.AnyObject(seq, xsd.ComplexType(seq)(**kwargs))
+
+def dict_to_obj_with_tag(kwargs, tag):
+    node = ET.Element(tag)
+    for key, value in kwargs.items():
+        n = ET.SubElement(node, key)
+        n.text = value
+    return node
 
 # Esempio di chiamata
 # node = client.create_message(client.service, "ProcessOperation", 

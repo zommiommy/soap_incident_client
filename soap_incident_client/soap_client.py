@@ -4,7 +4,7 @@ from zeep import Client
 from requests import Session
 from zeep.transports import Transport
 from .acknowledge import acknowledge
-from .utils import dict_to_obj
+from .utils import dict_to_obj, dict_to_obj_with_tag
 
 from lxml import etree as ET
 
@@ -29,9 +29,14 @@ class SOAPClient:
             "identId":args["identId"],
             "password":args["password"],
             "prozess":prozess,
-            "version":1.0,
-            "processData":dict_to_obj(request_object, tag)
+            "version":1.0
         }
+        
+        if tag is None:
+            kwargs["processData"] = dict_to_obj(request_object)
+        else:
+             kwargs["processData"] = dict_to_obj_with_tag(request_object, tag)
+
         if args["debug"]:
             self._debug(kwargs)
             with self.client.settings(raw_response=True):
