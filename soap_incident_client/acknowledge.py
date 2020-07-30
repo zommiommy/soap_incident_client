@@ -20,7 +20,7 @@ def acknowledge(args):
     r = requests.post(
         url,
         headers=headers,
-        auth=(args["USER"], args["PW"]), verify=False,
+        auth=(args["user"], args["password"]), verify=False,
         json=data,
     )
 
