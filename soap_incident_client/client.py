@@ -17,7 +17,6 @@ def client():
     parser.add_argument("inquiry_txt", help="", type=str)
     parser.add_argument("host", help="", type=str)
     parser.add_argument("service", help="", type=str)
-    print(sys.argv)
     args = vars(parser.parse_args())
 
     with open(args["settings"], "r") as f:
@@ -25,7 +24,8 @@ def client():
 
     args["host"] = args["label_monitoring"]
     args["service"] = args["it_short_desc"]
-
-    print(args)
+    
+    if args["debug"]:
+        print(args)
 
     SOAPClient(settings).run(args)

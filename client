@@ -3,5 +3,5 @@
 DIR=$(dirname "$(python -c "import os,sys; print(os.path.realpath(sys.argv[1]))" $0)")
 (\
     cd $DIR;\
-    python -c "import soap_incident_client; soap_incident_client.client()" $@
+    python -c "import soap_incident_client; soap_incident_client.client()" "$@"
 )
