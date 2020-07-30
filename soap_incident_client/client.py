@@ -17,9 +17,8 @@ def client():
     insert_settings = parser.add_argument_group('insert settings')
     insert_settings.add_argument("-se", "--se_severity", help="", type=str, required=True)
     insert_settings.add_argument("-it", "--inquiry_txt", help="", type=str, required=True)
-    known, unknown = parser.parse_known_args()
-    print(unknown)
-    args = vars(known)
+
+    args = vars(parser.parse_args())
 
     with open(args["settings"], "r") as f:
         settings = json.load(f)
