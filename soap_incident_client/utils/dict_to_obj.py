@@ -8,6 +8,8 @@ def dict_to_obj(kwargs, tag):
         xsd.Element(key, xsd.String())
         for key in kwargs.keys()
     ])
+    if tag is None:
+        return xsd.AnyObject(seq, xsd.ComplexType(seq)(**kwargs))
     el = xsd.Element(tag, seq)
     return xsd.AnyObject(el, xsd.ComplexType(el)(kwargs))
 

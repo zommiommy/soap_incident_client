@@ -43,7 +43,7 @@ class SOAPClient:
         result = self._call(args, self.settings["prozess_search"], {
             "it_short_desc":args["it_short_desc"],
             "label_monitoring":args["label_monitoring"],
-        }, "my_tag")
+        }, None)
         if args["debug"]:
             print("Complete response:\n%s"%result)
             print("Decoded element:\n%s"%ET.tostring(result["Result"]["_value_1"]).decode())
