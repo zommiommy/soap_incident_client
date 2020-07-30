@@ -2,5 +2,8 @@
     "wsdl_path":"./wsdls/sviluppo.wsdl",
     "neteye_url":"https://monitor.irideos.it:5665",
     "user":"director",
-    "password":""
+    "password":"",
+    "prozess_search":"SE NET EYE QUERY WS",
+    "prozess_insert":"SE INQ NET EYE WS",
+    "prozess_update":"SE NET EYE QUERY WS"
 }

@@ -10,7 +10,6 @@ def client():
 
     parser.add_argument("identId", help="", type=str)
     parser.add_argument("password", help="", type=str)
-    parser.add_argument("prozess", help="", type=str)
     parser.add_argument("label_monitoring", help="", type=str)
     parser.add_argument("it_short_desc", help="", type=str)
     parser.add_argument("se_severity", help="", type=str)

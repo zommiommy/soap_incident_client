@@ -24,11 +24,11 @@ class SOAPClient:
         tree = ET.ElementTree(node)
         print("Raw xml message sent:\n%s"%ET.tostring(tree, pretty_print=True).decode())
 
-    def _call(self, args, request_object): 
+    def _call(self, args, prozess, request_object): 
         kwargs = {
             "identId":args["identId"],
             "password":args["password"],
-            "prozess":args["prozess"],
+            "prozess":prozess,
             "version":1.0,
             "processData":dict_to_obj(request_object)
         }
@@ -40,7 +40,7 @@ class SOAPClient:
         return self.client.service.ProcessOperation(**kwargs)
 
     def search(self, args):
-        result = self._call(args, {
+        result = self._call(args, self.settings["prozess_search"], {
             "it_short_desc":args["it_short_desc"],
             "label_monitoring":args["label_monitoring"],
         })
@@ -56,7 +56,7 @@ class SOAPClient:
             return None
 
     def insert(self, args):
-        result = self._call(args, {
+        result = self._call(args, self.settings["prozess_insert"], {
             "shortdesc":args["it_short_desc"],
             "label_monitoring":args["label_monitoring"],
             "inquiry_txt":args["inquiry_txt"],
@@ -69,7 +69,7 @@ class SOAPClient:
         # TODO figure out how to extract the result inicdent id
 
     def update(self, args, incident_id):
-        result = self._call(args, {
+        result = self._call(args, self.settings["prozess_update"], {
                 "inquiry_id":args["inquiry_id"],
                 "inquiry_txt":args["inquiry_txt"],
                 "se_severity":args["se_severity"],
