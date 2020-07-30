@@ -1,3 +1,4 @@
+import sys
 import json
 import argparse
 from .soap_client import SOAPClient
@@ -16,7 +17,7 @@ def client():
     parser.add_argument("inquiry_txt", help="", type=str)
     parser.add_argument("host", help="", type=str)
     parser.add_argument("service", help="", type=str)
-
+    print(sys.argv)
     args = vars(parser.parse_args())
 
     with open(args["settings"], "r") as f:
