@@ -5,8 +5,8 @@ from .logger import logger
 from .get_file import get_file
 
 def _soap_call(args, payload):
-    #headers = {'content-type': 'application/soap+xml'}
-    headers = {'content-type': 'text/xml'}
+    headers = {'content-type': 'application/soap+xml'}
+    #headers = {'content-type': 'text/xml'}
     r = requests.post(
         args["wsdl_api_url"],
         data=payload,

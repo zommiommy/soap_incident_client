@@ -10,5 +10,6 @@ def soap_client(args):
         args["incident_id"] = soap_call(args, "insert.xml", "insert_regex.txt")
         #acknowledge(ack_args)
     else:
+        args["incident_id"] = incident_id
         soap_call(args, "update.xml", "update_regex.txt")
 
