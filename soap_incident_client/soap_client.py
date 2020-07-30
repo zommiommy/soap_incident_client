@@ -34,6 +34,8 @@ class SOAPClient:
         }
         if args["debug"]:
             self._debug(kwargs)
+            with self.client.settings(raw_response=True):
+                print(self.client.service.ProcessOperation(**kwargs))
         return self.client.service.ProcessOperation(**kwargs)
 
     def search(self, args):
