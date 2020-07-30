@@ -1,7 +1,7 @@
 {
     "wsdl_api_url":"http://151.89.50.30/iETWebservice/IETWebservices.asmx",
-    "neteye_url":"https://monitor.irideos.it:5665",
-    "neteye_user":"itsm-integration-user",
+    "neteye_url":"https://gfcgepvlmo000.fn91.priv:5665",
+    "neeuser":"itsm-integration-user",
     "neteye_password":"ItsmIntegration2020",
     "author":"ITSM integration user",
     "comment":"Acknowledge by ITSM, inquiryID: {inquiryID}",
